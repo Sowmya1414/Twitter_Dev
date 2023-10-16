@@ -7,11 +7,8 @@ const tweetSchema=new mongoose.Schema({
         max:[250,'Tweet cannot be more than 250 characters']
 
     },
-    
-    
-    
-},{timestamps:true})
+}, {timestamps:true})
 
 
-const Tweet=mongoose.model('Tweet',tweetSchema)
+const Tweet = mongoose.model('Tweet',tweetSchema)
 export default Tweet
