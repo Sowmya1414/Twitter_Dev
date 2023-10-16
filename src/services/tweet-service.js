@@ -8,7 +8,9 @@ constructor(){
 
     async create(data){
         const content=data.content
-        const tags=content.match(/#(\w+)/g).map((tag)=>tag.substring(1))//this regex extrct hashtags
+        const tags=content.match(/#(\w+)/g)
+        .map((tag)=>tag.substring(1))
+        .map(tag=>tag.toLowerCase())//this regex extrct hashtags
         const tweet=await this.tweetRepository.create(data)
         let alreadyPresentTags=await this.hashtagRepository.findByName(tags)
         let titleOfPresentTags=alreadyPresentTags.map(tags=>tags.title)
