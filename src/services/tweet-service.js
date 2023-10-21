@@ -26,6 +26,11 @@ constructor(){
        
         return tweet
     }
+
+    async get(tweetId){
+        const tweet=await this.tweetRepository.getWithComment(tweetId)
+        return tweet
+    }
 }
 export default TweetService
 
